@@ -159,6 +159,12 @@ void eliminarLibro(struct Libro biblioteca[], int *contador)
     {
         if (biblioteca[i].id == idBuscado)
         {
+            if (biblioteca[i].estado ==0)       
+            {
+                printf("No se puede eliminar el libro con ID %d porque esta prestado.\n", idBuscado);
+                return;
+            }
+            
             for (int j = i; j < *contador - 1; j++)
             {
                 biblioteca[j] = biblioteca[j + 1];
